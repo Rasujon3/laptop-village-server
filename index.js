@@ -37,6 +37,27 @@ async function run() {
       const product = await productCollection.findOne(query);
       res.send(product);
     });
+
+    // Quantity UPDATE API
+    app.put("/product/:id", async (req, res) => {
+      const id = req.params.id;
+      const updatedQunatity = req.body;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          // quantity: updatedProduct,
+          // quantity: req.body,
+          quantity: updatedQunatity.updateQuantity,
+        },
+      };
+      const result = await productCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
   } finally {
     // await client.close();
   }
