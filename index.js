@@ -21,7 +21,6 @@ function verifyJWT(req, res, next) {
     if (err) {
       return res.status(403).send({ message: "Forbidden access" });
     }
-    // console.log("decoded", decoded);
     req.decoded = decoded;
     next();
   });
@@ -72,8 +71,6 @@ async function run() {
       const options = { upsert: true };
       const updatedDoc = {
         $set: {
-          // quantity: updatedProduct,
-          // quantity: req.body,
           quantity: updatedQunatity.updateQuantity,
         },
       };
