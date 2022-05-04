@@ -37,6 +37,7 @@ async function run() {
   try {
     await client.connect();
     const productCollection = client.db(`assignment11`).collection(`products`);
+    const sellCollection = client.db(`assignment11`).collection(`sell`);
 
     // AUTH
     app.post("/login", async (req, res) => {
@@ -110,6 +111,14 @@ async function run() {
       } else {
         return res.status(403).send({ message: "Forbidden access" });
       }
+    });
+
+    // GET ALL SELLS
+    app.get("/sells", async (req, res) => {
+      const query = {};
+      const cursor = sellCollection.find(query);
+      const sells = await cursor.toArray();
+      res.send(sells);
     });
   } finally {
     // await client.close();
