@@ -1,10 +1,12 @@
 # Laptop Village
 
-## [Project Live Link](https://assignmenteleven.herokuapp.com/)
+## [Server Site Live Link](https://assignmenteleven.herokuapp.com/)
 
 [https://assignmenteleven.herokuapp.com/](https://assignmenteleven.herokuapp.com/)
 
 ---
+## Short description
+CRUD operation implement in this project. Using JWT token to verify the user. Server host on heroku.
 
 ## Project features and functionality
 
